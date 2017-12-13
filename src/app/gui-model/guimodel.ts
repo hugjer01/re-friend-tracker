@@ -9,7 +9,7 @@ export class GuiModel {
 
     private _guiModel = {
         "application": {
-            "title": "Requirements Engineering Friend Tracker",
+            "title": "Jérôme Hug Friend Tracker",
             "formList": [
                 {
                     "id": "FriendForm",
@@ -62,7 +62,41 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
+                        },
+                        {
+                            "id": "group",
+                            "type": "autocomplete",
+                            "name": "Group",
+                            "data":[ "Study", "Family", "School" ],
+                            "form": "GroupForm",
+                            "width": 2
                         }
+                    ]
+                },
+                {
+                    "id": "GroupForm",
+                    "title": "Group",
+                    "formFieldList": [
+                        {
+                            "id": "name",
+                            "type": "text",
+                            "name": "GroupName",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete",
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel",
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok",
+                        },
+                        
                     ]
                 },
                 {
@@ -70,9 +104,9 @@ export class GuiModel {
                     "title": "Location",
                     "formFieldList": [
                         {
-                            "id": "name",
+                            "id": "nickname",
                             "type": "text",
-                            "name": "LocationName",
+                            "name": "Nickname",
                             "width": 2,
                             "required": true
                         },
@@ -86,7 +120,7 @@ export class GuiModel {
                         },
                         {
                             "type": "okButton",
-                            "name": "Ok"
+                            "name": "Ok" 
                         }
                     ]
                 }
@@ -110,8 +144,46 @@ export class GuiModel {
                             "color": "yellow",
                             "page": "locationspage",
                         },
+                        {
+                            "type": "button",
+                            "name": "Groups",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "page": "groupspage",
+                        },
                     ]
                 },
+
+        {
+                "id": "groupspage",
+                "elementList":[
+                    {
+                        "type": "backbutton",
+                },
+                {
+                    "type": "newButton",
+                    "name": "NewGroup",
+                    "icon": "fa-weixin",
+                    "color": "green",
+                    "form": {
+                        "form": "GroupForm"
+                    },   
+                },
+                {
+                    "type": "list",
+                    "icon": "fa-weixin",
+                    "color": "wisteria",
+                    "search": true,
+                    "data": [ { name: "Study" }, { name: "Family" }, { name: "School"} ],
+                    "form": {
+                        "form": "GroupForm"
+                    },
+                }
+
+            ]
+        },
+
+
                 {
                     "id": "friendspage",
                     "elementList": [
